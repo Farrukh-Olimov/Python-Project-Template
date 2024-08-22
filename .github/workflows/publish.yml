@@ -1,8 +1,7 @@
 on:
   push:
     tags: releases/[1-9]+.[0-9]+.[0-9]+
-    branches: 
-      - main 
+    branches: master 
 jobs:
   fix:
     runs-on: ubuntu-latest
