@@ -19,7 +19,8 @@ jobs:
       - name: Install dependencies with poetry
         run: |
           poetry install
-          apt-get install python3-sphinx
+          poetry shell 
+          pip install sphinx
           
       - name: Build Sphinx documentation
         run: |
