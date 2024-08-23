@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "poetry-template"
-version = "3.0.0"
+version = "3.0.1"
 description = "A minimal, strictly structured Python project template."
 
 license = "MIT"
