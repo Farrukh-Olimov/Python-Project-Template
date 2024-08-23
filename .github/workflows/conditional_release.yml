@@ -40,3 +40,11 @@ jobs:
     with: 
       release: ${{needs.test.outputs.release}}
 
+  wrapup: 
+    needs: publish_doc
+    runs-on: ubuntu-latest
+    steps:
+       - name: clean 
+         run: | 
+              echo "CLEANED"
+
