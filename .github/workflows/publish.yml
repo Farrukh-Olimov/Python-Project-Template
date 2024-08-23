@@ -31,5 +31,5 @@ jobs:
         uses: ./.github/workflows/publish_doc.yml
         with: 
           release: true
-        secrets: inherit
+          secrets: inherit
        
