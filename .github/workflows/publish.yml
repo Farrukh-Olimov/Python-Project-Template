@@ -2,13 +2,7 @@ on:
   push:
     tags: 
       - 'v[0-9]+.[0-9]+.[0-9]+'
-      - 'v[0-9]+.[0-9]+.[0-9]+-dev'
-      - 'v[0-9]+.[0-9]+.[0-9]+.rc[0-9]+'
-      - 'v[0-9]+.[0-9]+.[0-9]+.rc[0-9]+-dev'
-      - 'v[0-9]+.[0-9]+.[0-9]+.alpha[0-9]+'
-      - 'v[0-9]+.[0-9]+.[0-9]+.alpha[0-9]+-dev'
-      - 'v[0-9]+.[0-9]+.[0-9]+.beta[0-9]+'
-      - 'v[0-9]+.[0-9]+.[0-9]+.beta[0-9]+-dev'
+
       
  
 jobs:
@@ -33,9 +27,27 @@ jobs:
       - name: Build Sphinx documentation
         run: |
           make -C docs html
+<<<<<<< HEAD
       - name: Call Reusable
         uses: ./.github/workflows/publish_doc.yml
         with: 
           release: true
        
+=======
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs/build/html
+  dummy_call: 
+      needs: fix
+      uses: ./.github/workflows/dummy.yml
+  dummy2: 
+      needs: [fix, dummy_call]
+      runs-on: ubuntu-latest
+      steps:  
+        - name: Checkout repository2
+          uses: actions/checkout@v3
+>>>>>>> b7884ac00345b44cd7af59594c93c4bf380febd6
   
