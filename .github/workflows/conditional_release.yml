@@ -39,6 +39,8 @@ jobs:
          repo_token: "${{ secrets.GITHUB_TOKEN }}"
          automatic_release_tag: "${{ github.ref_name }}"
          prerelease: false
+         files: | 
+                 README.md
       
   echo: 
     runs-on: ubuntu-latest
