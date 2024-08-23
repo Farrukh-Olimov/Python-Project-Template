@@ -1,0 +1,21 @@
+name: conditional-release 
+
+on:
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+'
+
+
+jobs: 
+  test:
+    runs-on: ubuntu-latest 
+    steps: 
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Dummy Echo 
+        run: | 
+             echo 'Dummy echo' 
+  publish_doc: 
+    needs: test 
+    uses: ./.github/workflows/publish.yml
+
