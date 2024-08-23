@@ -36,4 +36,6 @@ jobs:
   publish_doc: 
     needs: test 
     uses: ./.github/workflows/publish.yml
+    with: 
+      release: ${{needs.test.outputs.release}}
 
